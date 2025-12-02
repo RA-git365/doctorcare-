@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DoctorCare — Sign Up</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <img src="images/logo-compact.png" alt="" class="logo-small" onerror="this.style.display='none'">
+    <h1>Sign Up</h1>
+    <p class="muted">Create an account to get started</p>
+
+    <form id="signupForm" class="form" onsubmit="return submitSignup(event)">
+      <input type="hidden" id="role" name="role" value="">
+      <label class="field">
+        <input id="name" name="name" placeholder="Full Name" required />
+      </label>
+      <label class="field">
+        <input id="email" name="email" type="email" placeholder="Email" required />
+      </label>
+      <label class="field small-row">
+        <input id="mobile" name="mobile" placeholder="Mobile (optional)" />
+      </label>
+      <label class="field">
+        <input id="password" name="password" type="password" placeholder="Password" required minlength="6" />
+      </label>
+      <label class="field">
+        <input id="confirm" name="confirm" type="password" placeholder="Confirm Password" required />
+      </label>
+
+      <!-- doctor extra fields -->
+      <div id="doctorExtra" style="display:none;">
+        <label class="field">
+          <input id="degree" name="degree" placeholder="Degree (MBBS, MD)" />
+        </label>
+        <label class="field">
+          <input id="specialization" name="specialization" placeholder="Specialization (Cardiology)" />
+        </label>
+        <label class="field">
+          <input id="clinic" name="clinic" placeholder="Clinic Address" />
+        </label>
+      </div>
+
+      <button class="btn primary wide" type="submit">Sign Up</button>
+    </form>
+
+    <div class="alt">
+      Already have an account? <a href="login.html">Log In</a>
+    </div>
+  </main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

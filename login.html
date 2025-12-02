@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DoctorCare — Log In</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <img src="images/logo-compact.png" alt="" class="logo-small" onerror="this.style.display='none'">
+    <h1>Log In</h1>
+    <p class="muted">Welcome back — log in to continue</p>
+
+    <form id="loginForm" class="form" onsubmit="return submitLogin(event)">
+      <input type="hidden" id="loginRole" name="loginRole" value="">
+      <label class="field">
+        <input id="loginEmail" name="email" type="email" placeholder="Email" required />
+      </label>
+      <label class="field">
+        <input id="loginPassword" name="password" type="password" placeholder="Password" required />
+      </label>
+      <button class="btn primary wide" type="submit">Log In</button>
+    </form>
+
+    <div class="alt">Don't have an account? <a href="signup.html">Sign Up</a></div>
+  </main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

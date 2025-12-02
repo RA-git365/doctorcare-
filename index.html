@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DoctorCare — Landing</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="hero" role="main" aria-label="DoctorCare landing">
+    <header class="topbar">
+      <div class="topbuttons">
+        <button class="role-btn" onclick="navigate('signup?role=doctor')">Doctor Sign Up</button>
+        <button class="role-btn" onclick="navigate('login?role=doctor')">Doctor Log In</button>
+        <button class="role-btn" onclick="navigate('signup?role=patient')">Patient Sign Up</button>
+        <button class="role-btn" onclick="navigate('login?role=patient')">Patient Log In</button>
+      </div>
+    </header>
+
+    <section class="hero-center">
+      <div class="hero-left">
+        <h1 class="hero-title">Health in<br>Your Hands.</h1>
+        <p class="hero-sub">Just Click, Book, and<br>Feel Better.</p>
+        <div class="cta-row">
+          <button class="cta primary" onclick="navigate('patient-home.html')">Book Appointment</button>
+        </div>
+      </div>
+
+      <!-- Right side artwork is in the background image -->
+      <div class="hero-art" aria-hidden="true"></div>
+    </section>
+
+    <section class="features">
+      <div class="fitem">
+        <svg class="fi" viewBox="0 0 24 24" width="56" height="56"><circle cx="12" cy="12" r="11" fill="#fff" opacity="0.06"/><path d="M7 12l3 3 7-7" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <div class="ftext">Click</div>
+      </div>
+      <div class="fitem">
+        <svg class="fi" viewBox="0 0 24 24" width="56" height="56"><rect x="3" y="4" width="18" height="14" rx="2" fill="#fff" opacity="0.06"/><path d="M7 9h10" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="ftext">Book</div>
+      </div>
+      <div class="fitem">
+        <svg class="fi" viewBox="0 0 24 24" width="56" height="56"><circle cx="12" cy="12" r="11" fill="#fff" opacity="0.06"/><path d="M8 10c2 3 8 3 10 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="ftext">Feel Better</div>
+      </div>
+    </section>
+
+    <footer class="brand">DoctorCare</footer>
+  </main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

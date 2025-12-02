@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DoctorCare — Patient Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-layout">
+  <aside class="sidenav left-light">
+    <div class="profile-compact">
+      <img src="images/sample-patient.jpg" alt="You" class="avatar">
+      <div class="pname">Sarah Mitchell</div>
+    </div>
+
+    <nav>
+      <button class="snav active">Dashboard</button>
+      <button class="snav" onclick="navigate('patient-home.html')">Appointments</button>
+      <button class="snav" onclick="navigate('patient-home.html')">Prescriptions</button>
+      <button class="snav" onclick="navigate('patient-home.html')">Billing</button>
+      <button class="snav" onclick="navigate('patient-home.html')">Settings</button>
+      <button class="snav" onclick="logout()">Logout</button>
+    </nav>
+  </aside>
+
+  <main class="mainpane">
+    <header class="main-header">
+      <h2>Welcome, Sarah</h2>
+      <div>
+        <button class="btn primary" onclick="navigate('patient-home.html')">Book Appointment</button>
+      </div>
+    </header>
+
+    <section class="grid-three">
+      <div class="panel">
+        <h3>Doctors Near You</h3>
+        <div class="doc-grid">
+          <div class="doc-card"><img src="images/sample-doctor.jpg" alt=""><div class="doc-name">Dr. Kathryn Murphy<br><span class="muted">Cardiology • 1.5 miles</span></div></div>
+          <div class="doc-card"><img src="images/sample-doctor2.jpg" alt=""><div class="doc-name">Wade Warren<br><span class="muted">General • 2.0 miles</span></div></div>
+          <div class="doc-card"><img src="images/sample-doctor3.jpg" alt=""><div class="doc-name">Dr. Leslie Alexander<br><span class="muted">Pediatrics • 2.3 miles</span></div></div>
+          <div class="doc-card"><img src="images/sample-doctor4.jpg" alt=""><div class="doc-name">Jacob Jones<br><span class="muted">ENT • 3.1 miles</span></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>My Appointments</h3>
+        <ul class="appt-list compact">
+          <li>Dr. Kathryn Murphy — April 12, 2024</li>
+          <li>Dr. Leslie Alexander — Mar 30, 2024</li>
+          <li>Dr. Jacob Jones — Mar 15, 2024</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>Prescriptions</h3>
+        <div class="small-stats">3 active • $250</div>
+        <h3 style="margin-top:18px">Billing</h3>
+        <div class="small-stats">No outstanding bills</div>
+      </div>
+    </section>
+  </main>
+
+<script src="js/app.js"></script>
+</body>
+</html>

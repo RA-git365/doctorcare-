@@ -1,0 +1,12 @@
+{
+  "name": "DoctorCare",
+  "short_name": "DoctorCare",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f6fbff",
+  "theme_color": "#0077cc",
+  "icons": [
+    { "src": "/assets/logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

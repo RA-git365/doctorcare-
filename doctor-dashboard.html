@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DoctorCare — Doctor Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-layout">
+  <aside class="sidenav">
+    <div class="logo">
+      <div class="logo-mark">+</div>
+      <div class="logo-text">DoctorCare</div>
+    </div>
+    <nav>
+      <button class="snav active">Dashboard</button>
+      <button class="snav" onclick="navigate('doctor-dashboard.html')">Appointments</button>
+      <button class="snav" onclick="navigate('doctor-dashboard.html')">Patients</button>
+      <button class="snav" onclick="navigate('doctor-dashboard.html')">Prescriptions</button>
+      <button class="snav" onclick="navigate('doctor-dashboard.html')">Earnings</button>
+      <button class="snav" onclick="logout()">Logout</button>
+    </nav>
+  </aside>
+
+  <main class="mainpane">
+    <header class="main-header">
+      <h2>Welcome, Dr. Smith</h2>
+      <div class="profile">
+        <img src="images/sample-doctor.jpg" alt="Dr" class="avatar">
+        <button class="btn small" onclick="navigate('doctor-dashboard.html')">My Profile</button>
+      </div>
+    </header>
+
+    <section class="cards-row">
+      <div class="stat-card">Today's Appointments<br><div class="stat-number">5</div></div>
+      <div class="stat-card">New Patients<br><div class="stat-number">2</div></div>
+      <div class="stat-card">Pending Prescriptions<br><div class="stat-number">3</div></div>
+      <div class="chart-card">Earnings<br><div class="small-chart">[chart]</div></div>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h3>Upcoming Appointments</h3>
+        <ul class="appt-list">
+          <li><strong>Marie Lee</strong> — 08:00 AM — General Consultation <button class="btn tiny" onclick="startConsult('Marie Lee')">Start AI</button></li>
+          <li><strong>Ethan White</strong> — 11:00 AM — Follow-up <button class="btn tiny" onclick="startConsult('Ethan White')">Start AI</button></li>
+          <li><strong>Jane Cooper</strong> — 02:30 PM — Consultation <button class="btn tiny" onclick="startConsult('Jane Cooper')">Start AI</button></li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>Quick Actions</h3>
+        <div class="quick-grid">
+          <button class="quick">Add Patient</button>
+          <button class="quick" onclick="navigate('patient-home.html')">Create Appointment</button>
+          <button class="quick" onclick="navigate('doctor-dashboard.html')">Prescribe Medication</button>
+          <button class="quick" onclick="navigate('doctor-dashboard.html')">View Schedule</button>
+        </div>
+
+        <h3 style="margin-top:22px">Messages</h3>
+        <div class="messages">
+          <div class="msg"><strong>Jason Wells</strong> <span class="time">1:15 PM</span></div>
+          <div class="msg"><strong>Charlotte Perry</strong> <span class="time">10:20 AM</span></div>
+          <div class="msg"><strong>Derek Fisher</strong> <span class="time">8:49 AM</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
