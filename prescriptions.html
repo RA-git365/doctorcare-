@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>DoctorCare — Prescription Assistant</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.section{
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:8px;
+}
+
+textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:1px solid #ddd;
+border-radius:5px;
+}
+
+.suggestions{
+background:#f7f9fc;
+padding:15px;
+margin-top:15px;
+border-radius:6px;
+}
+
+</style>
+
+</head>
+
+<body class="app-layout">
+
+<aside class="sidenav">
+
+<div class="logo">
+<div class="logo-mark">+</div>
+<div class="logo-text">DoctorCare</div>
+</div>
+
+<nav>
+
+<button class="snav" onclick="navigate('doctor-dashboard.html')">Dashboard</button>
+
+<button class="snav" onclick="navigate('appointments.html')">Appointments</button>
+
+<button class="snav" onclick="navigate('patients.html')">Patients</button>
+
+<button class="snav active">Prescriptions</button>
+
+<button class="snav" onclick="navigate('earnings.html')">Earnings</button>
+
+<button class="snav" onclick="logout()">Logout</button>
+
+</nav>
+
+</aside>
+
+<main class="mainpane">
+
+<header class="main-header">
+<h2>Prescription Assistant</h2>
+</header>
+
+<!-- Symptoms -->
+
+<section class="section">
+
+<label>Patient Name</label>
+<input id="patientName" class="input">
+
+<label style="margin-top:15px">Symptoms / Notes</label>
+
+<textarea id="symptoms"></textarea>
+
+<button class="btn" style="margin-top:15px" onclick="generateSuggestions()">
+Get AI Suggestions
+</button>
+
+<div id="suggestions" class="suggestions" style="display:none"></div>
+
+</section>
+
+<!-- Doctor writes final prescription -->
+
+<section class="section">
+
+<h3>Doctor Prescription</h3>
+
+<textarea id="finalPrescription" placeholder="Doctor writes final prescription here"></textarea>
+
+<button class="btn small" style="margin-top:15px" onclick="savePrescription()">
+Save Prescription
+</button>
+
+</section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+
+function generateSuggestions(){
+
+const symptoms = document.getElementById("symptoms").value.toLowerCase();
+
+let meds = [];
+
+if(symptoms.includes("fever"))
+meds.push("Paracetamol 500mg");
+
+if(symptoms.includes("cough"))
+meds.push("Cough Syrup");
+
+if(symptoms.includes("infection"))
+meds.push("Amoxicillin 500mg");
+
+if(meds.length === 0)
+meds.push("General consultation medicine");
+
+const box = document.getElementById("suggestions");
+
+box.style.display="block";
+
+box.innerHTML =
+"<strong>AI Suggestions:</strong><br><br>" +
+meds.map(m => "• " + m).join("<br>");
+
+}
+
+function savePrescription(){
+
+const patient = document.getElementById("patientName").value;
+const prescription = document.getElementById("finalPrescription").value;
+
+const emr = JSON.parse(localStorage.getItem("doctorcare_emr")||"[]");
+
+emr.push({
+patient:patient,
+prescription:prescription,
+date:new Date().toISOString()
+});
+
+localStorage.setItem("doctorcare_emr",JSON.stringify(emr));
+
+alert("Prescription saved");
+
+}
+
+</script>
+
+</body>
+</html>
