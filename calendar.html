@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>DoctorCare — Appointment Calendar</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+<style>
+
+#calendar{
+background:white;
+padding:20px;
+border-radius:8px;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body class="app-layout">
+
+<!-- SIDEBAR -->
+
+<aside class="sidenav">
+
+<div class="logo">
+<div class="logo-mark">+</div>
+<div class="logo-text">DoctorCare</div>
+</div>
+
+<nav>
+
+<button class="snav" onclick="navigate('doctor-dashboard.html')">
+Dashboard
+</button>
+
+<button class="snav" onclick="navigate('appointments.html')">
+Appointments
+</button>
+
+<button class="snav" onclick="navigate('patients.html')">
+Patients
+</button>
+
+<button class="snav" onclick="navigate('prescriptions.html')">
+Prescriptions
+</button>
+
+<button class="snav" onclick="navigate('earnings.html')">
+Earnings
+</button>
+
+<button class="snav active">
+Calendar
+</button>
+
+<button class="snav" onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="mainpane">
+
+<header class="main-header">
+<h2>Appointment Calendar</h2>
+</header>
+
+<section>
+
+<div id="calendar"></div>
+
+</section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+const calendarEl = document.getElementById('calendar');
+
+const calendar = new FullCalendar.Calendar(calendarEl, {
+
+initialView: 'dayGridMonth',
+
+events: [
+
+{
+title: 'Marie Lee - Consultation',
+start: '2026-03-12T08:00:00'
+},
+
+{
+title: 'Ethan White - Follow-up',
+start: '2026-03-12T11:00:00'
+},
+
+{
+title: 'Jane Cooper - Consultation',
+start: '2026-03-13T14:30:00'
+}
+
+]
+
+});
+
+calendar.render();
+
+});
+
+</script>
+
+</body>
+</html>
