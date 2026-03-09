@@ -81,7 +81,9 @@ background:#d4edda;
 
 <h2>Appointments</h2>
 
-<button class="btn small">+ New Appointment</button>
+<button class="btn small" onclick="navigate('book-appointment.html')">
++ New Appointment
+</button>
 
 </header>
 
@@ -93,6 +95,7 @@ background:#d4edda;
 
 <tr>
 <th>Patient</th>
+<th>Date</th>
 <th>Time</th>
 <th>Problem</th>
 <th>Status</th>
@@ -103,41 +106,7 @@ background:#d4edda;
 
 <tbody id="appointmentsTable">
 
-<tr>
-<td>Marie Lee</td>
-<td>08:00 AM</td>
-<td>Fever</td>
-<td><span class="status pending">Pending</span></td>
-<td>
-<button class="btn tiny" onclick="startConsult('Marie Lee')">
-Start Consultation
-</button>
-</td>
-</tr>
-
-<tr>
-<td>Ethan White</td>
-<td>11:00 AM</td>
-<td>Follow-up</td>
-<td><span class="status pending">Pending</span></td>
-<td>
-<button class="btn tiny" onclick="startConsult('Ethan White')">
-Start Consultation
-</button>
-</td>
-</tr>
-
-<tr>
-<td>Jane Cooper</td>
-<td>02:30 PM</td>
-<td>Consultation</td>
-<td><span class="status completed">Completed</span></td>
-<td>
-<button class="btn tiny" disabled>
-Completed
-</button>
-</td>
-</tr>
+<!-- Appointments will load here -->
 
 </tbody>
 
@@ -148,6 +117,55 @@ Completed
 </main>
 
 <script src="js/app.js"></script>
+
+<script>
+
+/* Load appointments from storage */
+
+const table = document.getElementById("appointmentsTable");
+
+const appointments =
+JSON.parse(localStorage.getItem("doctorcare_appointments") || "[]");
+
+if(appointments.length === 0){
+
+table.innerHTML = `
+<tr>
+<td colspan="6" style="text-align:center">
+No appointments booked yet
+</td>
+</tr>
+`;
+
+}
+
+appointments.forEach(a => {
+
+const row = document.createElement("tr");
+
+row.innerHTML = `
+<td>${a.patient}</td>
+<td>${a.date}</td>
+<td>${a.time}</td>
+<td>${a.problem || "-"}</td>
+<td>
+<span class="status ${a.status === "Completed" ? "completed" : "pending"}">
+${a.status}
+</span>
+</td>
+<td>
+<button class="btn tiny"
+onclick="startConsult('${a.patient}')">
+Start Consultation
+</button>
+</td>
+`;
+
+table.appendChild(row);
+
+});
+
+</script>
 
 </body>
 </html>
