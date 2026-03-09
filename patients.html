@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DoctorCare — Patients</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:white;
+}
+
+.table th{
+background:#f0f4f8;
+padding:12px;
+text-align:left;
+}
+
+.table td{
+padding:12px;
+border-top:1px solid #e6e6e6;
+}
+
+.patient-name{
+font-weight:bold;
+}
+
+.badge{
+background:#e8f4ff;
+padding:4px 8px;
+border-radius:5px;
+font-size:12px;
+}
+
+</style>
+
+</head>
+
+<body class="app-layout">
+
+<!-- SIDEBAR -->
+<aside class="sidenav">
+
+<div class="logo">
+<div class="logo-mark">+</div>
+<div class="logo-text">DoctorCare</div>
+</div>
+
+<nav>
+
+<button class="snav" onclick="navigate('doctor-dashboard.html')">
+Dashboard
+</button>
+
+<button class="snav" onclick="navigate('appointments.html')">
+Appointments
+</button>
+
+<button class="snav active">
+Patients
+</button>
+
+<button class="snav" onclick="navigate('prescriptions.html')">
+Prescriptions
+</button>
+
+<button class="snav" onclick="navigate('earnings.html')">
+Earnings
+</button>
+
+<button class="snav" onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+<main class="mainpane">
+
+<header class="main-header">
+
+<h2>Patients</h2>
+
+<button class="btn small">
++ Add Patient
+</button>
+
+</header>
+
+<section class="panel">
+
+<table class="table">
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Phone</th>
+<th>Last Visit</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="patientsTable">
+
+<tr>
+
+<td class="patient-name">Marie Lee</td>
+
+<td>34</td>
+
+<td>+91 9876543210</td>
+
+<td>10 Mar 2026</td>
+
+<td>
+<span class="badge">Active</span>
+</td>
+
+<td>
+<button class="btn tiny" onclick="startConsult('Marie Lee')">
+Consult
+</button>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="patient-name">Ethan White</td>
+
+<td>41</td>
+
+<td>+91 9988776655</td>
+
+<td>08 Mar 2026</td>
+
+<td>
+<span class="badge">Active</span>
+</td>
+
+<td>
+<button class="btn tiny" onclick="startConsult('Ethan White')">
+Consult
+</button>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="patient-name">Jane Cooper</td>
+
+<td>29</td>
+
+<td>+91 9123456789</td>
+
+<td>05 Mar 2026</td>
+
+<td>
+<span class="badge">Active</span>
+</td>
+
+<td>
+<button class="btn tiny" onclick="startConsult('Jane Cooper')">
+Consult
+</button>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
