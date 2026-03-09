@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DoctorCare — Appointments</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+background:white;
+}
+
+.table th{
+text-align:left;
+padding:12px;
+background:#f0f4f8;
+}
+
+.table td{
+padding:12px;
+border-top:1px solid #e6e6e6;
+}
+
+.status{
+padding:5px 10px;
+border-radius:5px;
+font-size:12px;
+}
+
+.pending{
+background:#fff4cc;
+}
+
+.completed{
+background:#d4edda;
+}
+
+</style>
+
+</head>
+
+<body class="app-layout">
+
+<!-- SIDEBAR -->
+<aside class="sidenav">
+
+<div class="logo">
+<div class="logo-mark">+</div>
+<div class="logo-text">DoctorCare</div>
+</div>
+
+<nav>
+
+<button class="snav" onclick="navigate('doctor-dashboard.html')">Dashboard</button>
+
+<button class="snav active">Appointments</button>
+
+<button class="snav" onclick="navigate('patients.html')">Patients</button>
+
+<button class="snav" onclick="navigate('prescriptions.html')">Prescriptions</button>
+
+<button class="snav" onclick="navigate('earnings.html')">Earnings</button>
+
+<button class="snav" onclick="logout()">Logout</button>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+<main class="mainpane">
+
+<header class="main-header">
+
+<h2>Appointments</h2>
+
+<button class="btn small">+ New Appointment</button>
+
+</header>
+
+<section class="panel">
+
+<table class="table">
+
+<thead>
+
+<tr>
+<th>Patient</th>
+<th>Time</th>
+<th>Problem</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="appointmentsTable">
+
+<tr>
+<td>Marie Lee</td>
+<td>08:00 AM</td>
+<td>Fever</td>
+<td><span class="status pending">Pending</span></td>
+<td>
+<button class="btn tiny" onclick="startConsult('Marie Lee')">
+Start Consultation
+</button>
+</td>
+</tr>
+
+<tr>
+<td>Ethan White</td>
+<td>11:00 AM</td>
+<td>Follow-up</td>
+<td><span class="status pending">Pending</span></td>
+<td>
+<button class="btn tiny" onclick="startConsult('Ethan White')">
+Start Consultation
+</button>
+</td>
+</tr>
+
+<tr>
+<td>Jane Cooper</td>
+<td>02:30 PM</td>
+<td>Consultation</td>
+<td><span class="status completed">Completed</span></td>
+<td>
+<button class="btn tiny" disabled>
+Completed
+</button>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
