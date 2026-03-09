@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DoctorCare — Book Appointment</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.form-box{
+background:white;
+padding:20px;
+border-radius:8px;
+margin-top:20px;
+max-width:500px;
+}
+
+.input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:1px solid #ddd;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body class="app-layout">
+
+<aside class="sidenav">
+
+<div class="logo">
+<div class="logo-mark">+</div>
+<div class="logo-text">DoctorCare</div>
+</div>
+
+<nav>
+
+<button class="snav" onclick="navigate('patient-home.html')">
+Home
+</button>
+
+<button class="snav active">
+Book Appointment
+</button>
+
+<button class="snav" onclick="navigate('prescriptions.html')">
+Prescriptions
+</button>
+
+<button class="snav" onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</aside>
+
+<main class="mainpane">
+
+<header class="main-header">
+<h2>Book Appointment</h2>
+</header>
+
+<section class="form-box">
+
+<label>Patient Name</label>
+<input id="patientName" class="input">
+
+<label>Date</label>
+<input type="date" id="date" class="input">
+
+<label>Time</label>
+<input type="time" id="time" class="input">
+
+<label>Problem</label>
+<input id="problem" class="input">
+
+<button class="btn" style="margin-top:15px" onclick="bookAppointment()">
+Book Appointment
+</button>
+
+</section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+
+function bookAppointment(){
+
+const patient = document.getElementById("patientName").value;
+const date = document.getElementById("date").value;
+const time = document.getElementById("time").value;
+const problem = document.getElementById("problem").value;
+
+if(!patient || !date || !time){
+alert("Fill all fields");
+return;
+}
+
+const appointments =
+JSON.parse(localStorage.getItem("doctorcare_appointments")||"[]");
+
+appointments.push({
+patient,
+date,
+time,
+problem,
+status:"Pending"
+});
+
+localStorage.setItem(
+"doctorcare_appointments",
+JSON.stringify(appointments)
+);
+
+alert("Appointment booked successfully");
+
+}
+
+</script>
+
+</body>
+</html>
