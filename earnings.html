@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>DoctorCare — Earnings</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Chart Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+.stat-grid{
+display:flex;
+gap:20px;
+margin-top:20px;
+}
+
+.stat-box{
+background:white;
+padding:20px;
+border-radius:8px;
+flex:1;
+text-align:center;
+font-size:18px;
+}
+
+.chart-box{
+background:white;
+margin-top:20px;
+padding:20px;
+border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body class="app-layout">
+
+<!-- SIDEBAR -->
+<aside class="sidenav">
+
+<div class="logo">
+<div class="logo-mark">+</div>
+<div class="logo-text">DoctorCare</div>
+</div>
+
+<nav>
+
+<button class="snav" onclick="navigate('doctor-dashboard.html')">
+Dashboard
+</button>
+
+<button class="snav" onclick="navigate('appointments.html')">
+Appointments
+</button>
+
+<button class="snav" onclick="navigate('patients.html')">
+Patients
+</button>
+
+<button class="snav" onclick="navigate('prescriptions.html')">
+Prescriptions
+</button>
+
+<button class="snav active">
+Earnings
+</button>
+
+<button class="snav" onclick="logout()">
+Logout
+</button>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+<main class="mainpane">
+
+<header class="main-header">
+<h2>Earnings Dashboard</h2>
+</header>
+
+<!-- STATISTICS -->
+
+<section class="stat-grid">
+
+<div class="stat-box">
+Today's Earnings
+<h2>₹2500</h2>
+</div>
+
+<div class="stat-box">
+Monthly Earnings
+<h2>₹45000</h2>
+</div>
+
+<div class="stat-box">
+Consultations
+<h2>18</h2>
+</div>
+
+</section>
+
+<!-- CHART -->
+
+<section class="chart-box">
+
+<h3>Weekly Revenue</h3>
+
+<canvas id="earningsChart"></canvas>
+
+</section>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+
+const ctx = document.getElementById('earningsChart');
+
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+datasets: [{
+label: 'Revenue (₹)',
+data: [2000,3500,1800,4200,3000,5000,2700],
+borderColor: '#1e88e5',
+fill:false
+}]
+},
+options:{
+responsive:true
+}
+});
+
+</script>
+
+</body>
+</html>
