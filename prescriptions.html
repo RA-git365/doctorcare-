@@ -106,11 +106,14 @@ Download Prescription PDF
 </section>
 
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="js/app.js"></script>
+
+<!-- jsPDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
 
+/* AI suggestions function */
 function generateSuggestions(){
 
 const symptoms = document.getElementById("symptoms").value.toLowerCase();
@@ -126,9 +129,6 @@ meds.push("Cough Syrup");
 if(symptoms.includes("infection"))
 meds.push("Amoxicillin 500mg");
 
-if(meds.length === 0)
-meds.push("General consultation medicine");
-
 const box = document.getElementById("suggestions");
 
 box.style.display="block";
@@ -138,6 +138,9 @@ box.innerHTML =
 meds.map(m => "• " + m).join("<br>");
 
 }
+
+
+/* Save prescription */
 
 function savePrescription(){
 
@@ -155,6 +158,41 @@ date:new Date().toISOString()
 localStorage.setItem("doctorcare_emr",JSON.stringify(emr));
 
 alert("Prescription saved");
+
+}
+
+
+/* PDF GENERATOR */
+
+function downloadPDF(){
+
+const { jsPDF } = window.jspdf;
+
+const patient = document.getElementById("patientName").value;
+const prescription = document.getElementById("finalPrescription").value;
+
+if(!patient || !prescription){
+alert("Enter patient name and prescription first");
+return;
+}
+
+const doc = new jsPDF();
+
+doc.setFontSize(18);
+doc.text("DoctorCare Prescription", 20, 20);
+
+doc.setFontSize(12);
+
+doc.text("Patient: " + patient, 20, 40);
+doc.text("Date: " + new Date().toLocaleDateString(), 20, 50);
+
+doc.text("Prescription:", 20, 70);
+
+const lines = doc.splitTextToSize(prescription, 170);
+
+doc.text(lines, 20, 80);
+
+doc.save("prescription.pdf");
 
 }
 
